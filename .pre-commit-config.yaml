@@ -1,0 +1,27 @@
+exclude: ".git|.tox"
+default_stages: [commit]
+fail_fast: true
+repos:
+  - repo: local
+    hooks:
+      - id: lint
+        name: Run flake8
+        entry: bash -c 'make lint'
+        language: system
+        types: [python]
+      - id: typecheck
+        name: Run mypy
+        # Entire project should be type checked, not just staged files as changes can introduce project-wide type errors.
+        entry: bash -c 'make typecheck'
+        language: system
+        types: [python]
+      - id: format
+        name: Run isort and black
+        entry: bash -c 'make format'
+        language: system
+        types: [python]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace
+        files: (^|/).+\.(py|html|sh|css|js)$
