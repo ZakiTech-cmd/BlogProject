@@ -1,6 +1,9 @@
 # virutalenv
 .venv
 
+# enviromnet variables
+.env
+
 # JetBrains
 .idea
 
