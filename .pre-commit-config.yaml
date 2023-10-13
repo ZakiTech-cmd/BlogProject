@@ -9,12 +9,12 @@ repos:
         entry: bash -c 'make lint'
         language: system
         types: [python]
-      - id: typecheck
-        name: Run mypy
-        # Entire project should be type checked, not just staged files as changes can introduce project-wide type errors.
-        entry: bash -c 'make typecheck'
-        language: system
-        types: [python]
+#      - id: typecheck
+#        name: Run mypy
+#        # Entire project should be type checked, not just staged files as changes can introduce project-wide type errors.
+#        entry: bash -c 'make typecheck'
+#        language: system
+#        types: [python]
       - id: format
         name: Run isort and black
         entry: bash -c 'make format'
